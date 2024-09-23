@@ -55,7 +55,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="container mx-auto mt-10 w-full">
+    <div className="container mx-auto py-10 w-full">
       <h1 className="text-center text-3xl font-bold mb-10">Welcome to Dashboard</h1>
       {error && <div className="text-center text-red-500 mb-4">{error}</div>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

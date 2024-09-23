@@ -1,20 +1,41 @@
 "use client"
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect, ReactNode } from "react";
 
-const Header1 = () => {
+interface User{
+  username:string,
+  id:Number,
+  email:string
+}
+
+const Header1:React.FC  = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user,setUser] = useState<User| null>(null);
   const router = useRouter();
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
+    const auth_user = localStorage.getItem('user');
+    if (auth_user) {
+      try {
+        const parsedUser = JSON.parse(auth_user);
+        setUser(parsedUser);
+      } catch (error) {
+        console.error("Failed to parse user from localStorage", error);
+        localStorage.removeItem('user'); 
+      }
+    }
     if (token) {
       setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);
     }
   }, []);
+
+  useEffect(()=>{
+    console.log(user)
+  },[user])
 
   const logout = () => {
     localStorage.removeItem("jwt");
@@ -100,6 +121,17 @@ const Header1 = () => {
               </Link>
             </>
           ) : (
+            <>
+              <a
+                href="#"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                {user && (
+                <span className="block py-2 px-3 text-gray-900 dark:text-white">
+                  {user.username}
+                </span>
+              )}
+              </a>
             <button
               type="button"
               onClick={logout}
@@ -107,6 +139,7 @@ const Header1 = () => {
             >
               Logout
             </button>
+            </>
           )}
         </div>
       </div>

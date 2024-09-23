@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/sections/Register.tsx", "components/sections/Login.tsx", "components/sections/Dashboard.tsx", "components/sections/Footer/Footer1.tsx", "components/layout/Layout1.tsx", "components/elements/List.tsx", "components/elements/Headers/Heade1.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/sections/Register.tsx", "components/sections/Login.tsx", "components/sections/Dashboard.tsx", "components/sections/Footer/Footer1.tsx", "components/layout/Layout1.tsx", "components/elements/List.tsx", "components/elements/Headers/Header1.tsx"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
 import React,{ReactNode} from "react";
-import Header1 from "../elements/Headers/Heade1";
+import Header1 from "../elements/Headers/Header1";
 import Footer1 from "../sections/Footer/Footer1";
 
 interface Layout1Props {
@@ -10,7 +10,7 @@ const Layout1: React.FC<Layout1Props>=({ children }) => {
   return (
     <>
       <Header1 />
-      <main style={{minHeight:"80vh"}}>{children}</main>
+      <main style={{minHeight:"80vh",marginTop:"70px"}}>{children}</main>
       <Footer1 />
     </>
   );

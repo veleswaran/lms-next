@@ -17,15 +17,14 @@ const Login = () => {
         identifier: email,
         password: password,
       };
-      console.log(credentials);
+      // console.log(credentials);
       const response = await axios.post(
         "http://localhost:1337/api/auth/local",
         credentials
       );
 
-      localStorage.setItem("jwtToken", response.data.jwt);
-      localStorage.setItem("user", response.data.user);
-      console.log(response.data);
+      localStorage.setItem("jwt", response.data.jwt);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
       route.push("/dashboard")
     } catch (err) {
       setError("Invalid credentials. Please try again.");
