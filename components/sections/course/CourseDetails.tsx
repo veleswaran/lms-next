@@ -20,7 +20,7 @@ interface LanguageData {
 interface CourseAttributes {
   course_name: string;
   description: string;
-  icon: {
+  image: {
     data: IconData[];
   };
   languages: {
@@ -79,7 +79,7 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ id }) => {
       {error && <div className="text-red-500">{error}</div>}
       <h1>{data.course_name}</h1>
       <Image
-        src={`http://localhost:1337${data.icon?.data[0]?.attributes.url || ""}`}
+        src={`http://localhost:1337${data.image?.data[0]?.attributes.url || ""}`}
         width={400}
         height={400}
         alt={data.course_name || "Course Image"}
